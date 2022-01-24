@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Cowsino</string>
+    <string name="login_button_text">Login / Register</string>
+    <string name="username_hint_text">Username</string>
+    <string name="password_hint_text">Password</string>
+    <string name="username_textview">{Username}</string>
+    <string name="money_header_textview">"Wallet: "</string>
+    <string name="money_textview">{money}</string>
+    <string name="logout_button_text">Logout</string>
+    <string name="games_button_text">Games</string>
+    <string name="work_button_text">Work</string>
+    <string name="home_button_text">Home</string>
+    <string name="work_money_button_text">Make Money</string>
+    <string name="flip_a_coin_button_text">Flip-A-Coin</string>
+    <string name="blackjack_button_text">Blackjack</string>
+</resources>
