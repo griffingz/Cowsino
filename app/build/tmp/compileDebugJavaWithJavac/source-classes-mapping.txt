@@ -1,0 +1,6 @@
+com/ggz/cowsino/Profile.java
+ com.ggz.cowsino.Profile
+com/ggz/cowsino/BuildConfig.java
+ com.ggz.cowsino.BuildConfig
+com/ggz/cowsino/MainActivity.java
+ com.ggz.cowsino.MainActivity
