@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ADMIN\\AndroidStudioProjects\\Cowsino\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ms\\values-ms.xml",
+            "outputFile": "C:\\Users\\ADMIN\\Documents\\GitHub\\Cowsino\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ms\\values-ms.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ADMIN\\.gradle\\caches\\transforms-3\\e6a6b98a5bf4cf452a4bc3a3002b3bc1\\transformed\\material-1.5.0\\res\\values-ms\\values-ms.xml",
