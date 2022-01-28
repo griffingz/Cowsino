@@ -2,27 +2,29 @@ package com.ggz.cowsino;
 
 public class Profile {
     private String username;
+    private String password;
     private long money;
+    private long workGains;
+    private long coinFlipGains;
+    private long coinFlipLoss;
 
-    Profile() {
-        this.money = 100;
-        this.username = "PlayerOne";
-    }
-    Profile(String username) {
+    Profile(String username, String password, long money) {
         this.username = username;
-        this.money = 100;
-    }
-    Profile(long money) {
+        this.password = password;
         this.money = money;
-        this.username = "PlayerOne";
     }
-    Profile(String username, long money) {
-        this.username = username;
-        this.money = money;
+
+    public String profileToString() {
+        return username + "\n"
+                + password + "\n"
+                + money + "\n"
+                + workGains + "\n"
+                + coinFlipGains + "\n"
+                + coinFlipLoss;
     }
 
     public String moneyToString() {
-        return "$" + String.valueOf(money);
+        return "$" + money;
     }
 
     public void setMoney(long money) {
@@ -39,5 +41,39 @@ public class Profile {
 
     public String getUsername() {
         return username;
+    }
+
+    public void setPassword(String password) { this.password = password; }
+
+    public long getTotalGains() {
+        return workGains + coinFlipGains;
+    }
+
+    public long getTotalLoss() {
+        return coinFlipLoss;
+    }
+
+    public void setWorkGains(long gains) {
+        this.workGains = gains;
+    }
+
+    public long getWorkGains() {
+        return workGains;
+    }
+
+    public void setCoinFlipGains(long gains) {
+        this.coinFlipGains = gains;
+    }
+
+    public long getCoinFlipGains() {
+        return coinFlipGains;
+    }
+
+    public void setCoinFlipLoss(long loss) {
+        this.coinFlipLoss = loss;
+    }
+
+    public long getCoinFlipLoss() {
+        return coinFlipLoss;
     }
 }

@@ -1,8 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="red_200">#EE0000</color>
-    <color name="red_500">#CC0000</color>
-    <color name="red_700">#AA0000</color>
+    <color name="red_100">#EE0000</color>
+    <color name="red_200">#DD0000</color>
+    <color name="red_300">#CC0000</color>
+    <color name="red_400">#BB0000</color>
+    <color name="red_500">#AA0000</color>
+    <color name="red_600">#990000</color>
+    <color name="red_700">#660000</color>
+    <color name="green_100">#00EE00</color>
+    <color name="green_200">#00DD00</color>
+    <color name="green_300">#00CC00</color>
+    <color name="green_400">#00BB00</color>
+    <color name="green_500">#00AA00</color>
+    <color name="green_600">#009900</color>
+    <color name="green_700">#006600</color>
+    <color name="blue_100">#0000EE</color>
+    <color name="blue_200">#0000DD</color>
+    <color name="blue_300">#0000CC</color>
+    <color name="blue_400">#0000BB</color>
+    <color name="blue_500">#0000AA</color>
+    <color name="blue_600">#000099</color>
+    <color name="blue_700">#000066</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

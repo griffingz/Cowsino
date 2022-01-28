@@ -1,6 +1,19 @@
+com/ggz/cowsino/data/LoginDataSource.java
+ com.ggz.cowsino.data.LoginDataSource
+com/ggz/cowsino/databinding/ActivityMainBinding.java
+ com.ggz.cowsino.databinding.ActivityMainBinding
 com/ggz/cowsino/MainActivity.java
  com.ggz.cowsino.MainActivity
 com/ggz/cowsino/BuildConfig.java
  com.ggz.cowsino.BuildConfig
+com/ggz/cowsino/data/model/LoggedInUser.java
+ com.ggz.cowsino.data.model.LoggedInUser
+com/ggz/cowsino/data/LoginRepository.java
+ com.ggz.cowsino.data.LoginRepository
 com/ggz/cowsino/Profile.java
  com.ggz.cowsino.Profile
+com/ggz/cowsino/data/Result.java
+ com.ggz.cowsino.data.Result
+ com.ggz.cowsino.data.Result$1
+ com.ggz.cowsino.data.Result$Error
+ com.ggz.cowsino.data.Result$Success

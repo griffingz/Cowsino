@@ -8,16 +8,17 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="32" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:extractNativeLibs="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/cowsino_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/cowsino_logo_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.Cowsino" >
         <activity
             android:name="com.ggz.cowsino.MainActivity"

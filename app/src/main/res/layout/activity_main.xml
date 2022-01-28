@@ -7,82 +7,64 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/home_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:onClick="BackToHomePage"
-        android:text="@string/home_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/username_textView"
-        android:layout_width="380dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/username_textview"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/money_textView"
-        android:layout_width="275dp"
-        android:layout_height="wrap_content"
-        android:text="@string/money_textview"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toEndOf="@+id/money_header_textView"
-        app:layout_constraintTop_toTopOf="@+id/money_header_textView" />
-
-    <TextView
-        android:id="@+id/money_header_textView"
+        android:id="@+id/change_username_button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/money_header_textview"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:onClick="ChangeUsername"
+        android:text="@string/change_username_button_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username_textView" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextUsernameChange" />
+
+    <EditText
+        android:id="@+id/editTextTextUsernameChange"
+        android:layout_width="332dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="84dp"
+        android:ems="10"
+        android:hint="@string/username_change_hint"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/loginGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="editTextTextEmailAddress, editTextTextPassword, login_button"
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="243dp"
         android:layout_height="56dp"
-        android:onClick="LoginPageToHomePage"
+        android:onClick="Validation"
         android:text="@string/login_button_text"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.525" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.032" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
         android:layout_width="325dp"
         android:layout_height="54dp"
+        android:layout_marginTop="104dp"
         android:ems="10"
         android:hint="@string/username_hint_text"
         android:importantForAutofill="no"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
     <EditText
@@ -94,35 +76,74 @@
         android:importantForAutofill="no"
         android:inputType="textPassword"
         android:minHeight="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/login_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress"
         tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/loginGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible"
-        app:constraint_referenced_ids="editTextTextEmailAddress, editTextTextPassword, login_button"
-        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/homePageGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="username_textView, money_textView, money_header_textView, games_button, work_button, logout_button"
+        app:constraint_referenced_ids=" money_textView, money_header_textView, games_button, work_button, settings_button,username_textView,statsButton"
         tools:visibility="gone" />
 
+    <TextView
+        android:id="@+id/username_textView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="380dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/username_textview"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/money_textView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/money_textview"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/money_header_textView"
+        app:layout_constraintTop_toTopOf="@+id/money_header_textView" />
+
+    <TextView
+        android:id="@+id/money_header_textView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/money_header_textview"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username_textView" />
+
     <Button
-        android:id="@+id/logout_button"
+        android:id="@+id/statsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:onClick="HomePageToStatsPage"
+        android:text="@string/statsButtonText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/games_button" />
+
+    <Button
+        android:id="@+id/settings_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
-        android:text="@string/logout_button_text"
-        android:onClick="HomePageToLoginPage"
+        android:onClick="HomePageToSettingsPage"
+        android:text="@string/settings_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -133,10 +154,10 @@
         android:layout_width="140dp"
         android:layout_height="122dp"
         android:layout_marginTop="48dp"
-        android:text="@string/games_button_text"
         android:onClick="HomePageToGamesPage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.177"
+        android:text="@string/games_button_text"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/work_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/money_textView" />
 
@@ -145,12 +166,24 @@
         android:layout_width="140dp"
         android:layout_height="122dp"
         android:layout_marginTop="48dp"
-        android:text="@string/work_button_text"
+        android:layout_marginEnd="40dp"
         android:onClick="HomePageToWorkPage"
+        android:text="@string/work_button_text"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.756"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/money_textView" />
+
+    <Button
+        android:id="@+id/home_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:onClick="BackToHomePage"
+        android:text="@string/home_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/workGroup"
@@ -164,9 +197,9 @@
         android:id="@+id/work_money_button"
         android:layout_width="310dp"
         android:layout_height="337dp"
+        android:onClick="WorkForMoney"
         android:text="@string/work_money_button_text"
         android:textSize="48sp"
-        android:onClick="WorkForMoney"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -180,14 +213,14 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView, flip_a_coin_button, blackjack_button"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <Button
         android:id="@+id/flip_a_coin_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="GamesPageToFlipACoinPage"
         android:text="@string/flip_a_coin_button_text"
-        android:onClick="FlipACoinMain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.221"
@@ -199,13 +232,303 @@
         android:id="@+id/blackjack_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/blackjack_button_text"
         android:onClick="BlackJackMain"
+        android:text="@string/blackjack_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.782"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toEndOf="@+id/flip_a_coin_button"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.251" />
+
+    <TextView
+        android:id="@+id/totalGainsTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/totalGainsTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/totalGainsHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/totalGainsHeaderTextView" />
+
+    <TextView
+        android:id="@+id/totalLossTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/totalLossTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/totalLossHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/totalLossHeaderTextView" />
+
+    <TextView
+        android:id="@+id/totalGainsHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/totalGainsHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/money_header_textView"
+        app:layout_constraintTop_toBottomOf="@+id/money_header_textView" />
+
+    <TextView
+        android:id="@+id/totalLossHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/totalLossHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/totalGainsHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/totalGainsHeaderTextView" />
+
+    <TextView
+        android:id="@+id/coinFlipLossHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/coinFlipLossHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/coinFlipGainsHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/coinFlipGainsHeaderTextView" />
+
+    <TextView
+        android:id="@+id/workGainsHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/workGainsHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/totalLossHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/totalLossHeaderTextView" />
+
+    <TextView
+        android:id="@+id/coinFlipLossTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/coinFlipLossTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/coinFlipLossHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/coinFlipLossHeaderTextView" />
+
+    <TextView
+        android:id="@+id/coinFlipGainsHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/coinFlipGainsHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/workGainsHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/workGainsHeaderTextView" />
+
+    <TextView
+        android:id="@+id/workGainsTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/workGainsTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/workGainsHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/workGainsHeaderTextView" />
+
+    <TextView
+        android:id="@+id/coinFlipGainsTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/coinFlipGainsTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/coinFlipGainsHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/coinFlipGainsHeaderTextView" />
+
+    <Button
+        android:id="@+id/change_username_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:onClick="SettingsPageToUsernameChangePage"
+        android:text="@string/change_username_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/change_password_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="SettingsPageToPasswordChangePage"
+        android:text="@string/change_password_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_username_button" />
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="SettingsPageToLoginPage"
+        android:text="@string/logout_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_password_button" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/settingsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, change_username_button, change_password_button, logout_button"
+        tools:visibility="gone" />
+
+    <EditText
+        android:id="@+id/editTextTextPasswordChange"
+        android:layout_width="332dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="@string/password_change_hint"
+        android:importantForAutofill="no"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+
+    <Button
+        android:id="@+id/change_password_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="ChangePassword"
+        android:text="@string/change_password_button_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordChange" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/changePasswordGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, change_password_button2, editTextTextPasswordChange"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/changeUsernameGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, change_username_button2, editTextTextUsernameChange"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/flipACoinGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView,coinFlipBetButton,editTextTextCoinFlipBet,flipACoinHeader,headsOrTailsToggle,chipHeadsImage,chipTailsImage"
+        tools:visibility="gone" />
+
+    <EditText
+        android:id="@+id/editTextTextCoinFlipBet"
+        android:layout_width="229dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="@string/coin_flip_bet_hint"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flipACoinHeader"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/coinFlipBetButton"
+        android:layout_width="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:onClick="FlipACoinMain"
+        android:text="@string/coin_flip_bet_button_text"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextCoinFlipBet"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextCoinFlipBet" />
+
+    <TextView
+        android:id="@+id/flipACoinHeader"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="@string/flipACoinHeaderText"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/money_textView" />
+
+    <ToggleButton
+        android:id="@+id/headsOrTailsToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/headsOrTailsToggle"
+        android:textOff="@string/headsOrTailsSwitchOffText"
+        android:textOn="@string/headsOrTailsSwitchOnText"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextCoinFlipBet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flipACoinHeader"
+        app:layout_constraintVertical_bias="0.588" />
+
+    <ImageView
+        android:id="@+id/chipHeadsImage"
+        android:layout_width="332dp"
+        android:layout_height="363dp"
+        android:visibility="gone"
+        android:contentDescription="@string/chipHeadsContentDescription"
+        app:layout_constraintBottom_toTopOf="@+id/home_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.544"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCoinFlipBet"
+        app:srcCompat="@drawable/cowsino_chip_front" />
+
+    <ImageView
+        android:id="@+id/chipTailsImage"
+        android:layout_width="332dp"
+        android:layout_height="365dp"
+        android:visibility="gone"
+        android:contentDescription="@string/chipTailsContentDescription"
+        app:layout_constraintBottom_toTopOf="@+id/home_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextCoinFlipBet"
+        app:srcCompat="@drawable/cowsino_chip_back" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/statsPageGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView,coinFlipLossHeaderTextView,workGainsHeaderTextView,coinFlipGainsTextView,coinFlipGainsHeaderTextView,workGainsTextView,coinFlipLossTextView,totalGainsTextView,totalGainsHeaderTextView,totalLossHeaderTextView,totalLossTextView"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/blackjackGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
