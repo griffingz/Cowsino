@@ -25,9 +25,11 @@
     <string name="headsOrTailsSwitchOffText">Tails</string>
     <string name="headsOrTailsToggle">HeadsOrTailsToggle</string>
     <string name="statsButtonText">Stats</string>
+    <string name="gamblingGainsHeaderTextView">"Gambling Gains: "</string>
     <string name="workGainsHeaderTextView">"Work Gains: "</string>
     <string name="coinFlipGainsHeaderTextView">"Coin-Flip Gains: "</string>
     <string name="coinFlipLossHeaderTextView">"Coin-Flip Loss: "</string>
+    <string name="gamblingGainsTextView">{gambling gains}</string>
     <string name="workGainsTextView">{work gains}</string>
     <string name="coinFlipGainsTextView">{coin flip gains}</string>
     <string name="coinFlipLossTextView">{coin flip loss}</string>
@@ -37,4 +39,8 @@
     <string name="totalLossTextView">{total loss}</string>
     <string name="chipHeadsContentDescription">poker chip heads up</string>
     <string name="chipTailsContentDescription">poker chip tails up</string>
+    <string name="resetStatsButtonText">Reset Stats</string>
+    <string name="deleteAccountButtonText">Delete Account</string>
+    <string name="resetStatsTextView">Are you sure you want to reset your stats? This action cannot be undone.</string>
+    <string name="deleteAccountTextView">Are you sure you want to delete your account? This action cannot be undone.</string>
 </resources>
