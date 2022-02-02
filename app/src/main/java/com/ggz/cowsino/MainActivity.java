@@ -2,8 +2,11 @@ package com.ggz.cowsino;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +16,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -53,11 +58,11 @@ public class MainActivity extends AppCompatActivity {
         filePath = myObj.getAbsolutePath();
         boolean userExists = LookForUser(myObj);
         if (!userExists) {
-            RegisterUser(myObj, provided_username, provided_password);
+            RegisterUser(myObj, provided_username, provided_password, view);
         } else {
             boolean passwordsMatch = CheckPasswords(myObj, provided_password);
             if (passwordsMatch) {
-                LoginUser(myObj);
+                LoginUser(myObj, view);
             } else {
                 Toast.makeText(getApplicationContext(), "Invalid Password", Toast.LENGTH_LONG).show();
             }
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void RegisterUser(File myObj, String provided_username, String provided_password) {
+    public void RegisterUser(File myObj, String provided_username, String provided_password, View view) {
         String profileString = provided_username + "\n"     // Username
                 + provided_password + "\n"                  // Password
                 + "100\n"                                   // Money
@@ -89,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             System.err.println("[ERROR] Failed to write to file!");
             e.printStackTrace();
         }
-        LoginUser(myObj);
+        LoginUser(myObj, view);
     }
 
     public boolean CheckPasswords(File myObj, String provided_password) {
@@ -117,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         return stored_password;
     }
 
-    public void LoginUser(File myObj) {
+    public void LoginUser(File myObj, View view) {
         String stored_username = "ERROR";
         String stored_password = "ERROR";
         long stored_money = 0;
@@ -148,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
             profile.setWorkGains(storedWorkGains);
             profile.setCoinFlipGains(storedCoinFlipGains);
             profile.setCoinFlipLoss(storedCoinFlipLoss);
-            LoginPageToHomePage();
+            LoginPageToHomePage(view);
         } catch (FileNotFoundException e) {
             System.err.println("[ERROR] Could not read stored data from file!");
             e.printStackTrace();
@@ -159,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
 //================================= Page Transfers =================================================
 //==================================================================================================
 
-    public void LoginPageToHomePage() {
+    public void LoginPageToHomePage(View view) {
         TextView usernameTextView = findViewById(R.id.username_textView);
         TextView moneyTextView = findViewById(R.id.money_textView);
 
@@ -168,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
         CloseLoginPage();
         OpenHomePage();
+        hideKeyboardFrom(this, view);
     }
 
     public void HomePageToWorkPage(View view) {
@@ -184,6 +190,8 @@ public class MainActivity extends AppCompatActivity {
         CloseFlipACoinPage();
         CloseStatsPage();
         OpenHomePage();
+        CloseResetStatsPage();
+        CloseDeleteAccountPage();
     }
 
     public void HomePageToGamesPage(View view) {
@@ -199,11 +207,20 @@ public class MainActivity extends AppCompatActivity {
     public void HomePageToStatsPage(View view) {
         CloseHomePage();
         OpenStatsPage();
-        ((TextView) findViewById(R.id.totalGainsTextView)).setText(String.valueOf(profile.getTotalGains()));
-        ((TextView) findViewById(R.id.totalLossTextView)).setText(String.valueOf(profile.getTotalLoss()));
-        ((TextView) findViewById(R.id.workGainsTextView)).setText(String.valueOf(profile.getWorkGains()));
-        ((TextView) findViewById(R.id.coinFlipGainsTextView)).setText(String.valueOf(profile.getCoinFlipGains()));
-        ((TextView) findViewById(R.id.coinFlipLossTextView)).setText(String.valueOf(profile.getCoinFlipLoss()));
+
+        String[] statStrings = {NumberFormat.getNumberInstance(Locale.US).format(profile.getTotalGains()),
+                NumberFormat.getNumberInstance(Locale.US).format(profile.getTotalLoss()),
+                NumberFormat.getNumberInstance(Locale.US).format(profile.getCoinFlipGains()),
+                NumberFormat.getNumberInstance(Locale.US).format(profile.getWorkGains()),
+                NumberFormat.getNumberInstance(Locale.US).format(profile.getCoinFlipGains()),
+                NumberFormat.getNumberInstance(Locale.US).format(profile.getCoinFlipLoss())};
+
+        ((TextView) findViewById(R.id.totalGainsTextView)).setText(statStrings[0]);
+        ((TextView) findViewById(R.id.totalLossTextView)).setText(statStrings[1]);
+        ((TextView) findViewById(R.id.gamblingGainsTextView)).setText(statStrings[2]);
+        ((TextView) findViewById(R.id.workGainsTextView)).setText(statStrings[3]);
+        ((TextView) findViewById(R.id.coinFlipGainsTextView)).setText(statStrings[4]);
+        ((TextView) findViewById(R.id.coinFlipLossTextView)).setText(statStrings[5]);
     }
 
     public void SettingsPageToLoginPage(View view) {
@@ -219,6 +236,16 @@ public class MainActivity extends AppCompatActivity {
     public void SettingsPageToUsernameChangePage(View view) {
         CloseSettingsPage();
         OpenUsernameChangePage();
+    }
+
+    public void SettingsPageToResetStatsPage(View view) {
+        CloseSettingsPage();
+        OpenResetStatsPage();
+    }
+
+    public void SettingsPageToDeleteAccountPage(View view) {
+        CloseSettingsPage();
+        OpenDeleteAccountPage();
     }
 
     public void GamesPageToFlipACoinPage(View view) {
@@ -292,6 +319,22 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.changeUsernameGroup).setVisibility(View.GONE);
     }
 
+    public void OpenResetStatsPage() {
+        findViewById(R.id.resetStatsGroup).setVisibility(View.VISIBLE);
+    }
+
+    public void CloseResetStatsPage() {
+        findViewById(R.id.resetStatsGroup).setVisibility(View.GONE);
+    }
+
+    public void OpenDeleteAccountPage() {
+        findViewById(R.id.deleteAccountGroup).setVisibility(View.VISIBLE);
+    }
+
+    public void CloseDeleteAccountPage() {
+        findViewById(R.id.deleteAccountGroup).setVisibility(View.GONE);
+    }
+
     public void OpenFlipACoinPage() {
         findViewById(R.id.flipACoinGroup).setVisibility(View.VISIBLE);
     }
@@ -355,6 +398,45 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void ResetStats(View view) {
+        profile.setWorkGains(0);
+        profile.setCoinFlipGains(0);
+        profile.setCoinFlipLoss(0);
+        UpdateUserFile();
+        BackToHomePage(view);
+    }
+
+    public void DeleteAccount(View view) {
+        File myObj = new File(filePath);
+        if (myObj.delete()) {
+            System.out.println("Deleted the file: " + myObj.getName());
+        } else {
+            System.out.println("Failed to delete the file.");
+        }
+        CloseDeleteAccountPage();
+        OpenLoginPage();
+    }
+
+//==================================================================================================
+//================================= Page Modification ==============================================
+//==================================================================================================
+
+//    public static void hideKeyboard(Activity activity) {
+//        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+//        //Find the currently focused view, so we can grab the correct window token from it.
+//        View view = activity.getCurrentFocus();
+//        //If no view currently has focus, create a new one, just so we can grab a window token from it
+//        if (view == null) {
+//            view = new View(activity);
+//        }
+//        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+//    }
+
+    public static void hideKeyboardFrom(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
 //==================================================================================================
 //================================= Working ========================================================
 //==================================================================================================
@@ -372,6 +454,7 @@ public class MainActivity extends AppCompatActivity {
 //==================================================================================================
 
     public void FlipACoinMain(View view) {
+        hideKeyboardFrom(this, view);
         long bet = CollectBet();
         if (bet < 0) {
             Toast.makeText(getApplicationContext(), "Invalid Bet", Toast.LENGTH_SHORT).show();
