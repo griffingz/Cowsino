@@ -212,7 +212,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView, flip_a_coin_button, blackjack_button"
+        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView, flip_a_coin_button"
         tools:visibility="gone" />
 
     <Button
@@ -234,6 +234,7 @@
         android:layout_height="wrap_content"
         android:onClick="BlackJackMain"
         android:text="@string/blackjack_button_text"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.39"
@@ -284,6 +285,27 @@
         app:layout_constraintTop_toBottomOf="@+id/totalGainsHeaderTextView" />
 
     <TextView
+        android:id="@+id/gamblingGainsHeaderTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/gamblingGainsHeaderTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/totalLossHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/totalLossHeaderTextView" />
+
+    <TextView
+        android:id="@+id/gamblingGainsTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:text="@string/totalGainsTextView"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/gamblingGainsHeaderTextView"
+        app:layout_constraintTop_toTopOf="@+id/gamblingGainsHeaderTextView" />
+
+    <TextView
         android:id="@+id/coinFlipLossHeaderTextView"
         style="@style/Theme.Cowsino"
         android:layout_width="wrap_content"
@@ -302,8 +324,8 @@
         android:layout_marginTop="5dp"
         android:text="@string/workGainsHeaderTextView"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/totalLossHeaderTextView"
-        app:layout_constraintTop_toBottomOf="@+id/totalLossHeaderTextView" />
+        app:layout_constraintStart_toStartOf="@+id/gamblingGainsHeaderTextView"
+        app:layout_constraintTop_toBottomOf="@+id/gamblingGainsHeaderTextView" />
 
     <TextView
         android:id="@+id/coinFlipLossTextView"
@@ -370,6 +392,75 @@
         app:layout_constraintTop_toBottomOf="@+id/change_username_button" />
 
     <Button
+        android:id="@+id/resetStatsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="SettingsPageToResetStatsPage"
+        android:text="@string/resetStatsButtonText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/change_password_button" />
+
+    <Button
+        android:id="@+id/resetStatsButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="ResetStats"
+        android:text="@string/resetStatsButtonText"
+        app:layout_constraintBottom_toTopOf="@+id/home_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
+
+    <TextView
+        android:id="@+id/resetStatsTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/resetStatsTextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/resetStatsButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/deleteAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="SettingsPageToDeleteAccountPage"
+        android:text="@string/deleteAccountButtonText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetStatsButton" />
+
+    <Button
+        android:id="@+id/deleteAccountButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="DeleteAccount"
+        android:text="@string/deleteAccountButtonText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/deleteAccountTextView"
+        style="@style/Theme.Cowsino"
+        android:layout_width="275dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/deleteAccountTextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/deleteAccountButton2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/logout_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -379,14 +470,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/change_password_button" />
+        app:layout_constraintTop_toBottomOf="@+id/deleteAccountButton" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/settingsGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="home_button, change_username_button, change_password_button, logout_button"
+        app:constraint_referenced_ids="home_button, change_username_button, change_password_button,
+        resetStatsButton, deleteAccountButton, logout_button"
         tools:visibility="gone" />
 
     <EditText
@@ -413,6 +505,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPasswordChange" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/resetStatsGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, resetStatsButton2, resetStatsTextView"
+        tools:visibility="gone" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/deleteAccountGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="home_button, deleteAccountButton2, deleteAccountTextView"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/changePasswordGroup"
@@ -520,7 +628,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView,coinFlipLossHeaderTextView,workGainsHeaderTextView,coinFlipGainsTextView,coinFlipGainsHeaderTextView,workGainsTextView,coinFlipLossTextView,totalGainsTextView,totalGainsHeaderTextView,totalLossHeaderTextView,totalLossTextView"
+        app:constraint_referenced_ids="home_button, money_header_textView, money_textView,
+        username_textView,coinFlipLossHeaderTextView,workGainsHeaderTextView,coinFlipGainsTextView,
+        coinFlipGainsHeaderTextView,workGainsTextView,coinFlipLossTextView,totalGainsTextView,
+        totalGainsHeaderTextView,totalLossHeaderTextView,totalLossTextView,
+        gamblingGainsHeaderTextView,gamblingGainsTextView"
         tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
@@ -529,6 +641,6 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="home_button, money_header_textView, money_textView, username_textView"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
