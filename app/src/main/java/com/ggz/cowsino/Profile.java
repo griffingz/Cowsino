@@ -1,5 +1,8 @@
 package com.ggz.cowsino;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class Profile {
     private String username;
     private String password;
@@ -24,7 +27,7 @@ public class Profile {
     }
 
     public String moneyToString() {
-        return "$" + money;
+        return "$" + NumberFormat.getNumberInstance(Locale.US).format(money);
     }
 
     public void setMoney(long money) {
