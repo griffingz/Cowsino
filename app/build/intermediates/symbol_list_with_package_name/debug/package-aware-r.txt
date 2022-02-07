@@ -2624,6 +2624,7 @@ id baseline
 id beginOnFirstDraw
 id beginning
 id bestChoice
+id blackjackGroup
 id blackjack_button
 id blocking
 id bottom
@@ -2690,6 +2691,10 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteAccountButton
+id deleteAccountButton2
+id deleteAccountGroup
+id deleteAccountTextView
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -2747,6 +2752,8 @@ id floating
 id forever
 id fragment_container_view_tag
 id frost
+id gamblingGainsHeaderTextView
+id gamblingGainsTextView
 id gamesGroup
 id games_button
 id ghost_view
@@ -2900,6 +2907,10 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id resetStatsButton
+id resetStatsButton2
+id resetStatsGroup
+id resetStatsTextView
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3283,12 +3294,16 @@ string coinFlipLossHeaderTextView
 string coinFlipLossTextView
 string coin_flip_bet_button_text
 string coin_flip_bet_hint
+string deleteAccountButtonText
+string deleteAccountTextView
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string flipACoinHeaderText
 string flip_a_coin_button_text
+string gamblingGainsHeaderTextView
+string gamblingGainsTextView
 string games_button_text
 string headsOrTailsSwitchOffText
 string headsOrTailsSwitchOnText
@@ -3389,6 +3404,8 @@ string path_password_eye
 string path_password_eye_mask_strike_through
 string path_password_eye_mask_visible
 string path_password_strike_through
+string resetStatsButtonText
+string resetStatsTextView
 string search_menu_title
 string settings_button_text
 string statsButtonText
